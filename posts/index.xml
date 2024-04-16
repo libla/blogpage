@@ -1,11 +1,139 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>文章 on 技术宅的自留地</title>
-    <link>/posts/</link>
-    <description>Recent content in 文章 on 技术宅的自留地</description>
+    <title>灵感 on 技术宅的自留地</title>
+    <link>https://libla.me/posts/</link>
+    <description>Recent content in 灵感 on 技术宅的自留地</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <copyright>Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</copyright><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 19 Mar 2017 17:58:34 +0800</lastBuildDate>
+    <atom:link href="https://libla.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>小记文件服务器的漏洞修复</title>
+      <link>https://libla.me/posts/2017/03/19/fileserver/</link>
+      <pubDate>Sun, 19 Mar 2017 17:58:34 +0800</pubDate>
+      <guid>https://libla.me/posts/2017/03/19/fileserver/</guid>
+      <description>前一段时间用node.js写了一个简单的文件服务器，用于做项目时本地架设服务器满足客户端下载文件的需求(链接在这里)。 因为是用于本地的测试服</description>
+    </item>
+    <item>
+      <title>使用关系型数据库作为Redis落地的思路</title>
+      <link>https://libla.me/posts/2017/03/12/redis/</link>
+      <pubDate>Sun, 12 Mar 2017 19:09:25 +0800</pubDate>
+      <guid>https://libla.me/posts/2017/03/12/redis/</guid>
+      <description>Redis的持久化方式主要有2种：RDB和AOF，但各有不足，同时Redis没有SQL支持，Redis本身提供的命令不足以实现大多数SQL查</description>
+    </item>
+    <item>
+      <title>分享一个低配VPS下运行的mysql配置文件</title>
+      <link>https://libla.me/posts/2016/11/06/mysqlpoor/</link>
+      <pubDate>Sun, 06 Nov 2016 08:38:07 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/11/06/mysqlpoor/</guid>
+      <description>在各种内存CPU核心只有1/2核，内存只有512M/1G的vps下，内存、CPU、硬盘都不是太充裕。因此主要思路是，禁止吃内存大户innod</description>
+    </item>
+    <item>
+      <title>Debian 8开启sftp服务</title>
+      <link>https://libla.me/posts/2016/11/06/sftp/</link>
+      <pubDate>Sun, 06 Nov 2016 08:19:10 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/11/06/sftp/</guid>
+      <description>看到某云的CDN居然是使用ftp这种早该淘汰的协议，不禁有些吐槽。ftp曾经作为互联网上最重要的协议，但漫长使用过程中体现出的各种缺点，已不</description>
+    </item>
+    <item>
+      <title>使用SevenZipSharp出现“Can not load 7-zip library or internal COM error! Message: DLL file does not exist.”的解决方案</title>
+      <link>https://libla.me/posts/2016/08/31/sevenzipsharp2/</link>
+      <pubDate>Wed, 31 Aug 2016 01:45:56 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/08/31/sevenzipsharp2/</guid>
+      <description>如果你是从nuget上下载安装的SevenZipSharp库，当你写好相应代码，兴冲冲的启动程序进行测试时，以下画面会让你受到当头一棒： 究其</description>
+    </item>
+    <item>
+      <title>使用SevenZipSharp压缩/解压7z格式</title>
+      <link>https://libla.me/posts/2016/08/31/sevenzipsharp/</link>
+      <pubDate>Wed, 31 Aug 2016 01:36:48 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/08/31/sevenzipsharp/</guid>
+      <description>7z格式采用的LZMA算法，号称具有现今最高压缩率。笔者在nuget上搜索7z，在搜索结果中最终选择了SevenZipSharp来进行压缩/</description>
+    </item>
+    <item>
+      <title>使用EPPlus读写xlsx文件</title>
+      <link>https://libla.me/posts/2016/08/31/epplus/</link>
+      <pubDate>Wed, 31 Aug 2016 00:55:19 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/08/31/epplus/</guid>
+      <description>朋友有个需求，想对N张excel表做过滤和合并的处理，拜托我写个小程序。因为用户的背景是非专业用户，因此最好的选择是写个GUI程序，再加上读</description>
+    </item>
+    <item>
+      <title>异步编程的两种模型，闭包回调，和Lua的coroutine，到底哪一种消耗更大</title>
+      <link>https://libla.me/posts/2016/08/16/coroutine/</link>
+      <pubDate>Tue, 16 Aug 2016 03:45:37 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/08/16/coroutine/</guid>
+      <description>今天和人讨论了一下CPS变形为闭包回调(典型为C#和JS)，以及Lua这种具有真正堆栈，可以yield和resume的coroutine，两</description>
+    </item>
+    <item>
+      <title>async/await的多线程问题</title>
+      <link>https://libla.me/posts/2016/08/14/async/</link>
+      <pubDate>Sun, 14 Aug 2016 19:26:40 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/08/14/async/</guid>
+      <description>今天尝试把.net4.5新增的异步编程模型async/await加入自己的框架，因为从第一印象看，使用async/await的写法实在太方便</description>
+    </item>
+    <item>
+      <title>Windows下检测文件名大小写是否匹配</title>
+      <link>https://libla.me/posts/2016/08/11/wincase/</link>
+      <pubDate>Thu, 11 Aug 2016 23:53:24 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/08/11/wincase/</guid>
+      <description>跨平台开发有一个众所周知，但因为只是偶尔受到困扰，一般人不会在意的问题，就是windows对文件名大小写不敏感，而其他平台对文件名大小写敏感</description>
+    </item>
+    <item>
+      <title>nosql使用感受</title>
+      <link>https://libla.me/posts/2016/01/30/ssdb/</link>
+      <pubDate>Sat, 30 Jan 2016 09:59:03 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/01/30/ssdb/</guid>
+      <description>最近一个项目尝试了使用ssdb(一个类似于redis的数据结构数据库)，主要感受有几点： 优势 nosql的无模式在修改和插入时很方便，不需要预</description>
+    </item>
+    <item>
+      <title>docker 操作记录</title>
+      <link>https://libla.me/posts/2016/01/19/docker/</link>
+      <pubDate>Tue, 19 Jan 2016 12:20:05 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/01/19/docker/</guid>
+      <description>开启新容器 docker run --name 容器名字 -ti[d] 镜像 初始化命令(需要是阻塞的) 额外参数 -v 本地目录:容器目录[:ro] 映射本地路径和容器路径(时区同步、数据库doc</description>
+    </item>
+    <item>
+      <title>node.js使用感想</title>
+      <link>https://libla.me/posts/2015/12/31/nodejs/</link>
+      <pubDate>Thu, 31 Dec 2015 22:53:12 +0800</pubDate>
+      <guid>https://libla.me/posts/2015/12/31/nodejs/</guid>
+      <description>最近尝试了使用node.js，但因为不是太深入(小项目，还没做完)，所以不能谈心得谈经验，就来谈谈使用感想。 node.js和以往的cgi接口</description>
+    </item>
+    <item>
+      <title>C#与非托管——封送和自动封送</title>
+      <link>https://libla.me/posts/2015/06/08/csnative2/</link>
+      <pubDate>Mon, 08 Jun 2015 09:38:21 +0800</pubDate>
+      <guid>https://libla.me/posts/2015/06/08/csnative2/</guid>
+      <description>之前说到了如何从C函数声明通过简单的查找替换生成一份C#的静态引用声明(C#与非托管——初体验)，因为只是简单说明，所以全部采用的是基础类型</description>
+    </item>
+    <item>
+      <title>android sdk更新的终极解决方案</title>
+      <link>https://libla.me/posts/2015/06/08/androidsdk/</link>
+      <pubDate>Mon, 08 Jun 2015 00:03:33 +0800</pubDate>
+      <guid>https://libla.me/posts/2015/06/08/androidsdk/</guid>
+      <description>由于众所周知的原因，国内更新Android SDK一直是个老大难的事情，一般都要到处找VPN之类的工具来曲线救国。不过其实谷歌已经帮我们想到这</description>
+    </item>
+    <item>
+      <title>C#与非托管——初体验</title>
+      <link>https://libla.me/posts/2015/06/07/csnative1/</link>
+      <pubDate>Sun, 07 Jun 2015 21:10:40 +0800</pubDate>
+      <guid>https://libla.me/posts/2015/06/07/csnative1/</guid>
+      <description>P/Invokes初看起来非常简单，利用DllImport进行extern函数的声明，程序就可以在调用extern函数的时候自动查询调用到对</description>
+    </item>
+    <item>
+      <title>C#与非托管——动机</title>
+      <link>https://libla.me/posts/2015/06/07/csnative/</link>
+      <pubDate>Sun, 07 Jun 2015 21:02:53 +0800</pubDate>
+      <guid>https://libla.me/posts/2015/06/07/csnative/</guid>
+      <description>Unity3D采用C#作为脚本开发语言，本来是可以直接提供代码局部更新机制的，可惜Mono和Unity3D迫于苹果的压力，在iOS上采用AO</description>
+    </item>
+    <item>
+      <title>新的开始</title>
+      <link>https://libla.me/posts/2015/06/04/start/</link>
+      <pubDate>Thu, 04 Jun 2015 14:05:29 +0800</pubDate>
+      <guid>https://libla.me/posts/2015/06/04/start/</guid>
+      <description>一个人如果知道了自己的过去，那么应该可以比较好的了解自己的现在。呼啦啦晃悠了几年，如今毕业都几年了，我也很想总结一下自己都做了什么，都学了什</description>
+    </item>
   </channel>
 </rss>

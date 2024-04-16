@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zlib on 技术宅的自留地</title>
+    <link>https://libla.me/tags/zlib/</link>
+    <description>Recent content in zlib on 技术宅的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</copyright>
+    <lastBuildDate>Wed, 31 Aug 2016 01:36:48 +0800</lastBuildDate>
+    <atom:link href="https://libla.me/tags/zlib/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用SevenZipSharp压缩/解压7z格式</title>
+      <link>https://libla.me/posts/2016/08/31/sevenzipsharp/</link>
+      <pubDate>Wed, 31 Aug 2016 01:36:48 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/08/31/sevenzipsharp/</guid>
+      <description>7z格式采用的LZMA算法，号称具有现今最高压缩率。笔者在nuget上搜索7z，在搜索结果中最终选择了SevenZipSharp来进行压缩/</description>
+    </item>
+  </channel>
+</rss>

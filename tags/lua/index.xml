@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lua on 技术宅的自留地</title>
+    <link>https://libla.me/tags/lua/</link>
+    <description>Recent content in lua on 技术宅的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 16 Aug 2016 03:45:37 +0800</lastBuildDate>
+    <atom:link href="https://libla.me/tags/lua/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>异步编程的两种模型，闭包回调，和Lua的coroutine，到底哪一种消耗更大</title>
+      <link>https://libla.me/posts/2016/08/16/coroutine/</link>
+      <pubDate>Tue, 16 Aug 2016 03:45:37 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/08/16/coroutine/</guid>
+      <description>今天和人讨论了一下CPS变形为闭包回调(典型为C#和JS)，以及Lua这种具有真正堆栈，可以yield和resume的coroutine，两</description>
+    </item>
+  </channel>
+</rss>

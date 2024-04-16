@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on 技术宅的自留地</title>
+    <link>https://libla.me/tags/mysql/</link>
+    <description>Recent content in mysql on 技术宅的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 06 Nov 2016 08:38:07 +0800</lastBuildDate>
+    <atom:link href="https://libla.me/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>分享一个低配VPS下运行的mysql配置文件</title>
+      <link>https://libla.me/posts/2016/11/06/mysqlpoor/</link>
+      <pubDate>Sun, 06 Nov 2016 08:38:07 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/11/06/mysqlpoor/</guid>
+      <description>在各种内存CPU核心只有1/2核，内存只有512M/1G的vps下，内存、CPU、硬盘都不是太充裕。因此主要思路是，禁止吃内存大户innod</description>
+    </item>
+  </channel>
+</rss>

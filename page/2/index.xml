@@ -1,0 +1,232 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术宅的自留地</title>
+    <link>https://libla.me/</link>
+    <description>Recent content on 技术宅的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 19 Mar 2017 17:58:34 +0800</lastBuildDate>
+    
+        <atom:link href="https://libla.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>nosql使用感受</title>
+        <link>https://libla.me/posts/2016/01/30/ssdb/</link>
+        <pubDate>Sat, 30 Jan 2016 09:59:03 +0800</pubDate>
+        
+        <guid>https://libla.me/posts/2016/01/30/ssdb/</guid>
+        <description>技术宅的自留地 https://libla.me/posts/2016/01/30/ssdb/ -&lt;p&gt;最近一个项目尝试了使用ssdb(一个类似于redis的数据结构数据库)，主要感受有几点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优势
+&lt;ol&gt;
+&lt;li&gt;nosql的无模式在修改和插入时很方便，不需要预先新建表或者修改表结构来新加字段，只需要代码里面使用就行。&lt;/li&gt;
+&lt;li&gt;nosql的速度非常快，而且一般有自动过期机制，而一般web服务器都是无状态的，用nosql作缓存来配合极其方便，这也是大部分的使用场景。&lt;/li&gt;
+&lt;li&gt;架设简单，协议也非常简单，可以自己很轻易的写一个客户端。&lt;/li&gt;
+&lt;li&gt;提供的一些数据结构，可以极大的简化一些常见需求的实现(如排行榜)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;劣势
+&lt;ol&gt;
+&lt;li&gt;没有sql语句，提供的客户端工具只支持简单的单个指令执行。这导致了几乎任何一个分析或者修改的需求，都需要写程序来实现。&lt;/li&gt;
+&lt;li&gt;没有模式，很多批量修改的场景只能用遍历判断来代替。&lt;/li&gt;
+&lt;li&gt;某些实现(如ssdb)为了实现简便，对返回数据的大小有限制，这导致了遍历还必须分段进行，结合1、2，进一步增加了统计分析的工作量和难度。&lt;/li&gt;
+&lt;li&gt;没有事务和锁支持，在某些场景下使用存在问题(redis有一个简单的队列事务支持)。我利用setnx实现了一个乐观锁，用incr指令代替了大部分的set指令来实现原子加/减，但事务在很多严谨的情况下还是必要的。&lt;/li&gt;
+&lt;li&gt;没有redo log，不能按时间点备份或回档，只能全量备份。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总结：nosql非常适合缓存这种纯粹的kv存储(尤其是不需要遍历的场景)，也比较适合一些频繁修改的实时应用，和一些特殊的场景(如排行榜)，但不利于统计分析和修改。因此可以考虑把nosql只用于缓存，或者用于存储的同时，在写入数据时同时把统计数据写到一个rds中，以便在之后利用强大的sql语句来做统计分析。&lt;/p&gt;
+- https://libla.me/posts/2016/01/30/ssdb/ - Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>docker 操作记录</title>
+        <link>https://libla.me/posts/2016/01/19/docker/</link>
+        <pubDate>Tue, 19 Jan 2016 12:20:05 +0800</pubDate>
+        
+        <guid>https://libla.me/posts/2016/01/19/docker/</guid>
+        <description>技术宅的自留地 https://libla.me/posts/2016/01/19/docker/ -&lt;p&gt;开启新容器
+&lt;code&gt;docker run --name 容器名字 -ti[d] 镜像 初始化命令(需要是阻塞的)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;额外参数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;-v 本地目录:容器目录[:ro] 映射本地路径和容器路径(时区同步、数据库docker必备)，加:ro表示只读&lt;/li&gt;
+&lt;li&gt;-p 本地端口:容器端口 端口映射&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;容器转成镜像
+&lt;code&gt;docker commit &amp;lt;CONTAINER ID&amp;gt; 镜像名字[:标签]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;容器转成文件
+&lt;code&gt;docker export &amp;lt;CONTAINER ID&amp;gt; &amp;gt; 文件路径&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;逆过程(文件转成容器)
+&lt;code&gt;cat 文件路径 | docker import - 镜像名字[:标签]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;镜像转成文件
+&lt;code&gt;docker save 镜像名字 &amp;gt; 文件路径&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;逆过程(文件转成镜像)
+&lt;code&gt;docker load &amp;lt; 文件路径&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看镜像
+&lt;code&gt;docker images[ -a]&lt;/code&gt; 加-a可以看被覆盖的镜像&lt;/p&gt;
+&lt;p&gt;查看容器
+&lt;code&gt;docker ps[ -a]&lt;/code&gt; 加-a可以看已经结束的容器&lt;/p&gt;
+&lt;p&gt;查看历史
+&lt;code&gt;docker history 镜像名字&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;发布镜像
+&lt;code&gt;docker push 镜像名字(只能发布到登录名下的空间)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;停止容器
+&lt;code&gt;docker kill/stop &amp;lt;CONTAINER ID&amp;gt;/$(docker ps -q)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;删除容器
+&lt;code&gt;docker rm &amp;lt;CONTAINER ID&amp;gt;/$(docker ps -a -q)&lt;/code&gt; 运行时不能删除&lt;/p&gt;
+&lt;p&gt;删除镜像
+&lt;code&gt;docker rmi 镜像名字[:标签，默认latest]/$(docker images -q)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;重启容器
+&lt;code&gt;docker restart &amp;lt;CONTAINER ID&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;进入容器
+&lt;code&gt;docker attach &amp;lt;CONTAINER ID&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;外部执行命令
+&lt;code&gt;docker exec &amp;lt;CONTAINER ID&amp;gt; 需要执行的命令&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;退出容器而不停止容器 组合键：&lt;code&gt;Ctrl+P+Q&lt;/code&gt;&lt;/p&gt;
+- https://libla.me/posts/2016/01/19/docker/ - Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>node.js使用感想</title>
+        <link>https://libla.me/posts/2015/12/31/nodejs/</link>
+        <pubDate>Thu, 31 Dec 2015 22:53:12 +0800</pubDate>
+        
+        <guid>https://libla.me/posts/2015/12/31/nodejs/</guid>
+        <description>技术宅的自留地 https://libla.me/posts/2015/12/31/nodejs/ -&lt;p&gt;最近尝试了使用node.js，但因为不是太深入(小项目，还没做完)，所以不能谈心得谈经验，就来谈谈使用感想。&lt;/p&gt;
+&lt;p&gt;node.js和以往的cgi接口的服务器+cgi程序(如apache+phpmod)中的单个角色不同，他自身是一个完整的程序，以库的形式提供了各种各样的功能，如果不写一行代码，apache、nginx等至少能做一个文件服务器，而node.js连端口都没监听。可以这么认为，node.js是一个类似lua/python的interpreter的javascript的interpreter，同时扩展了javascript的库，使其具有socket、文件、二进制buffer等功能。可以这么认为，node.js只是可以用做服务器，而非只是一个服务器。下面谈谈我认为的node.js的优劣。&lt;/p&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;node.js以javascript作为唯一支持语言，是他的特点，也是他的之所以能这么成功的原因。web开发人员众多，已经成就了jsp，php，ruby等多个语言，而现在出现了大家一早就熟悉的javascript也可以做后端，自然会受到追棒。node.js满足了javascript进行全栈开发的需求。&lt;/li&gt;
+&lt;li&gt;通过异步回调和事件，让当前进程专注于计算，IO之类的费时操作通过其他线程处理之后再回调到当前线程，相比php，每个页面的响应时间都很合理(一个页面不会影响其他页面)；相比java的多线程编程，他又没有其复杂性(不用加锁和考虑先后)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;太多的异步回调给书写带来了很大的麻烦，对异常处理也非常不友好，模块间更容易造成耦合，而且看起来相比stackfull的coroutine节省了堆栈的开销，但实际上闭包或者promise会多构造很多个，内存、gc和调用消耗上并不一定能节省。&lt;/li&gt;
+&lt;li&gt;javascript的版本问题。当前版本的javascript并不是能让人非常舒服的写代码(再没有一个语言有像javascript这么多的compile to js项目)，因此有各自编译到javascript的语言，还有ECMAScript6和ECMAScript7。到目前为止，node.js的稳定版(4.2.4)还是默认不支持ECMAScript6的，需要加上&amp;ndash;use-strict &amp;ndash;harmony参数。当然我推荐把这个参数写到类似gulp的脚本里。&lt;/li&gt;
+&lt;li&gt;项目依赖和查找糟糕。开发方面，官方推荐通过package.json设置依赖，npm自动安装依赖包，但是npm里面的包质量参差不齐，我就遇到好几个包在类似socket.on(&amp;rsquo;error&amp;rsquo;)的回调中直接throw异常的，另外还有些有兼容性的问题。而本项目的查找路径和node_modules写法完全不一样，一个是./xxx/xxx一个是xxx，发现包有问题想自己修改放到项目内，还得同时修改众多的require。此外一个不是很影响体验的瑕疵，node_modules里面貌似每个项目都把自己的依赖包给下载到自己的子node_modules文件夹里面，如果依赖包里面还有依赖，又会继续包含进来，导致文件夹层次和路径非常深，不得不说这个做法比较奇葩。&lt;/li&gt;
+&lt;li&gt;node.js很容易被误用的一点，就是认为他的session具有相关性，从而试图在内存中缓存一些东西，而node.js实际上也没有对这种做法做任何的禁止和警示。不像php等cgi，每次请求都是一次全新的页面解释，不存在任何的全局变量(为了加速可能会缓存解析结果，但只是缓存字节码或者语法树之类的，每次调用的环境肯定是全新的)，而node.js的请求并不清空环境。这一条咋看起来毫无问题，说不定还能利用这点做一些一般服务器较难实现的响应(比如实时传输文件等)。但是因为pm2等启动工具，以及node后来版本新增的cluster启动，都会导致同一用户的多次请求会被分发到不同的进程，而你毫不知情。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以上是一个node.js初学者的使用感受，可能看起来满腹牢骚，不过也是因为教训深刻，爱恨交织。至少目前为止已经有2点我始终不会忘了：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;不要在回调函数里面throw异常&lt;/li&gt;
+&lt;li&gt;不要试图在全局变量中缓存处理结果，最好连全局变量都不要使用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;另外说一句，&lt;a href=&#34;https://nodejs.org/dist/latest-v4.x/docs/api/documentation.html&#34;&gt;官方的文档&lt;/a&gt;实在太差劲了，连回调函数的参数说明都没有。&lt;/p&gt;
+- https://libla.me/posts/2015/12/31/nodejs/ - Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>C#与非托管——封送和自动封送</title>
+        <link>https://libla.me/posts/2015/06/08/csnative2/</link>
+        <pubDate>Mon, 08 Jun 2015 09:38:21 +0800</pubDate>
+        
+        <guid>https://libla.me/posts/2015/06/08/csnative2/</guid>
+        <description>技术宅的自留地 https://libla.me/posts/2015/06/08/csnative2/ -&lt;p&gt;之前说到了如何从C函数声明通过简单的查找替换生成一份C#的静态引用声明(&lt;a href=&#34;https://libla.me/posts/2015/06/07/csnative1/&#34;&gt;C#与非托管——初体验&lt;/a&gt;)，因为只是简单说明，所以全部采用的是基础类型匹配和自动封送。自动封送虽然能省去我们不少编码时间，但如果不理解自动封送背后的实际行为，那就如同看魔术师的黑盒子，知其然不知其所以然。而且，自动封送也不是永远有效的万能药，因此这里记录一下封送相关的理解。&lt;/p&gt;
+&lt;p&gt;非基础类型在C#与Native代码交互时需要进行封送处理，一般的封送处理方式有内存拷贝、固定内存地址，总结如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;针对string，可以使用Marshal.StringToHGlobalAnsi、Marshal.StringToHGlobalAuto、Marshal.StringToHGlobalUni把string封送到非托管函数，之后需要调用Marshal.FreeHGlobal释放内存；或者使用Marshal.PtrToStringAnsi、Marshal.PtrToStringAuto、Marshal.PtrToStringUni从非托管函数里面取出string。&lt;/li&gt;
+&lt;li&gt;针对byte[](或基础类型的数组)，可以使用Marshal.Copy从byte[]拷贝封送到非托管函数或者从非托管函数拷贝封送到byte[]。此外从byte[]封送到非托管函数还可以采取固定内存直接传送byte[]的原始地址(省去了申请内存和拷贝的开销，速度更快)，方法是使用GCHandle并指定GCHandleType.Pinned类型。&lt;/li&gt;
+&lt;li&gt;针对委托，可以使用Marshal.GetFunctionPointerForDelegate从delegate封送到非托管函数，或者使用Marshal.GetDelegateForFunctionPointer从非托管函数里面取出。和byte[]一样，在封送到非托管函数时需要确保GC不要回收委托(需要保持引用但不需要Pinned)。&lt;/li&gt;
+&lt;li&gt;针对结构体，可以在C#中按一样的顺序和对应的数据类型声明一个同样的struct(只能使用基础类型和固定长度的数组)，并且标记StructLayout的LayoutKind.Sequential属性，然后使用Marshal.StructureToPtr和Marshal.PtrToStructure进行封送。&lt;/li&gt;
+&lt;li&gt;C#的对象不能在Native中进行处理，只能保存以待之后再传回给C#调用，保存的方式为C#用GCHandle引用对象，然后把GCHandle转成IntPtr，传给Native作为指针保存。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当C#声明的extern函数返回类型和参数类型中有托管类型时(如string、byte[]、委托等)，就会进行自动封送处理，因此可以省写大部分的封送代码。不过有几种情况还是需要手动进行封送的，如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;string的编码是utf8之类的非ansi非utf16编码，则必须手动进行封送同时转换编码。&lt;/li&gt;
+&lt;li&gt;委托转换成函数指针的操作比较耗时，如果有频繁的对同一委托进行封送调用，则预存转换后的结果能够很显著的提升性能。&lt;/li&gt;
+&lt;/ol&gt;
+- https://libla.me/posts/2015/06/08/csnative2/ - Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>android sdk更新的终极解决方案</title>
+        <link>https://libla.me/posts/2015/06/08/androidsdk/</link>
+        <pubDate>Mon, 08 Jun 2015 00:03:33 +0800</pubDate>
+        
+        <guid>https://libla.me/posts/2015/06/08/androidsdk/</guid>
+        <description>技术宅的自留地 https://libla.me/posts/2015/06/08/androidsdk/ -&lt;p&gt;由于众所周知的原因，国内更新Android SDK一直是个老大难的事情，一般都要到处找VPN之类的工具来曲线救国。不过其实谷歌已经帮我们想到这点了，我们自身就可以解决问题，步骤如下：
+&lt;img src=&#34;../../posts/androidsdk/1.png&#34; alt=&#34;1&#34;&gt;
+&lt;img src=&#34;../../posts/androidsdk/2.png&#34; alt=&#34;2&#34;&gt;
+打开SDK Manager，点击Tools-&amp;gt;Options，打开设置界面，然后进入http://www.androiddevtools.cn/，找一个顺眼的IP和端口，如
+&lt;code&gt;上海GDG镜像服务器地址 http://sdk.gdgshanghai.com 端口：8000&lt;/code&gt;
+填在上方界面的HTTP Proxy Server和HTTP Proxy Port处，然后点击菜单Packages-&amp;gt;Reload，刷新列表后选择需要更新的组件进行更新，enjoy it！&lt;/p&gt;
+&lt;p&gt;PS. 可以看到里面有一些体制内的研究机构提供的镜像，以前我总是担心我们处于墙内，哪天就突然变成局域网了，现在看来可以放下心了。&lt;/p&gt;
+- https://libla.me/posts/2015/06/08/androidsdk/ - Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>C#与非托管——初体验</title>
+        <link>https://libla.me/posts/2015/06/07/csnative1/</link>
+        <pubDate>Sun, 07 Jun 2015 21:10:40 +0800</pubDate>
+        
+        <guid>https://libla.me/posts/2015/06/07/csnative1/</guid>
+        <description>技术宅的自留地 https://libla.me/posts/2015/06/07/csnative1/ -&lt;p&gt;P/Invokes初看起来非常简单，利用DllImport进行extern函数的声明，程序就可以在调用extern函数的时候自动查询调用到对应的非托管函数，有些类似Java的native函数，但更为简单，不需要编写相应的C函数导出。例如&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[DllImport(LIB, CallingConvention = CallingConvention.Cdecl)]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;extern&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; testfunc();
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;简单的P/Invokes封装可以把C库头文件的函数全部复制过来，并按照如下规则进行修改(可以通过正则表达式查找替换搞定)：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;C#的基元类型都可以在C里面找到对应的类型(decimal和object除外，size_t需要特别注意，要用IntPtr对应)&lt;/li&gt;
+&lt;li&gt;参数和返回值里面的字符串可以替换成string&lt;/li&gt;
+&lt;li&gt;参数里面的char *或const char *等之类的内存块数据可以替换成byte[]&lt;/li&gt;
+&lt;li&gt;参数和返回值里面的函数指针可以先声明参数和返回值类型兼容的delegate，然后替换成delegate&lt;/li&gt;
+&lt;li&gt;其他指针类型可以替换成IntPtr&lt;/li&gt;
+&lt;li&gt;&amp;hellip;不定长度参数的函数和va_list参数的函数没找到如何映射的，最终只能放弃导入自己用C#实现&lt;/li&gt;
+&lt;li&gt;传递类/结构值而非指针的函数不知道如何声明，暂时没有这个需求&lt;/li&gt;
+&lt;/ol&gt;
+- https://libla.me/posts/2015/06/07/csnative1/ - Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>C#与非托管——动机</title>
+        <link>https://libla.me/posts/2015/06/07/csnative/</link>
+        <pubDate>Sun, 07 Jun 2015 21:02:53 +0800</pubDate>
+        
+        <guid>https://libla.me/posts/2015/06/07/csnative/</guid>
+        <description>技术宅的自留地 https://libla.me/posts/2015/06/07/csnative/ -&lt;p&gt;Unity3D采用C#作为脚本开发语言，本来是可以直接提供代码局部更新机制的，可惜Mono和Unity3D迫于苹果的压力，在iOS上采用AOT模式运行，断绝了代码局部更新的路(任何一个具有很高知名度的引擎都不敢明着违反苹果的条款)，而Android的代码局部更新则被Unity3D做成了一个收费的售后服务项目。不过不是跨平台的机制都没有多大的意义，所以如果需要局部更新代码(大家也都称为热更新)，一般都需要采用脚本的方式，把大部分游戏内逻辑特别是变化很大的逻辑写在脚本里面，然后把脚本作为资源来做局部更新。&lt;/p&gt;
+&lt;p&gt;让Unity3D支持脚本有两种方案：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用不含动态生成代码的C#子集实现一个脚本解释器，典型实现有C#Light、KopiLua和UniLua；&lt;/li&gt;
+&lt;li&gt;使用P/Invokes让C#能够调用已有的C/C++脚本解释器，典型实现有ulua、slua。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/crazylights/p/4230335.html&#34;&gt;C#Light和升级版L#&lt;/a&gt;：由于C#的语法特性较多，C#Light不太可能也没有必要实现所有的C#特性(如泛型)，因此按照C#的编程习惯比较容易遇到不兼容的问题需要调试或重写。虽然说减少了学习成本(不需要学习新的语言，直接以Unity3D支持C#进行开发)，但各种不支持的特性也算是一个很大的记忆负担。后来升级版的L#作者直接解析IL，编译直接利用VS的编译器，总算走出了语法解析的泥潭，但还是有很多特性不支持(目前已知的有引用、泛型、继承等)。此外C#对基础操作(比如读取内存偏移)性能较低，在做虚拟机时对脚本自身的运算效率低下。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ppl-pilot.com/kopilua.aspx&#34;&gt;KopiLua&lt;/a&gt;：应该是最早出现的Unity3D支持lua的库了，不过作者自己就说了，是对着lua源代码line by line从C源码port到C#的，而且lua的C源码里面大量使用了宏在C#里面只能是函数调用，所以性能低下是可以预见。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/xebecnan/UniLua&#34;&gt;UniLua&lt;/a&gt;：专门用C#重写的lua虚拟机，如字符串之类的直接使用了C#原生类，效率还算不错。不过升级到lua5.2了，有人喜欢有人不喜欢吧。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ulua.org/&#34;&gt;ulua&lt;/a&gt;、&lt;a href=&#34;https://github.com/pangweiwei/slua&#34;&gt;slua&lt;/a&gt;：后起之秀，配合上类似tolua++的代码预生成性能非常优越，瓶颈在于C#调用C/C++的native接口，所以交互部分需要精心设计，之后游戏逻辑就和开发quick-cocos-x游戏差不多了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;无论是直接使用ulua还是自己进行封装，ulua的实现以及C#的非托管调用都是必须了解的。因此接下来我会陆续写一些这方面的内容，备忘的同时方便他人~&lt;/p&gt;
+- https://libla.me/posts/2015/06/07/csnative/ - Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>新的开始</title>
+        <link>https://libla.me/posts/2015/06/04/start/</link>
+        <pubDate>Thu, 04 Jun 2015 14:05:29 +0800</pubDate>
+        
+        <guid>https://libla.me/posts/2015/06/04/start/</guid>
+        <description>技术宅的自留地 https://libla.me/posts/2015/06/04/start/ -&lt;p&gt;一个人如果知道了自己的过去，那么应该可以比较好的了解自己的现在。呼啦啦晃悠了几年，如今毕业都几年了，我也很想总结一下自己都做了什么，都学了什么。以前总是觉得时间不够用，没时间写博客，等有空闲了，激情也没了。所以趁现在有时间，培养一个好习惯。&lt;/p&gt;
+- https://libla.me/posts/2015/06/04/start/ - Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</description>
+        </item>
+    
+    
+  </channel>
+</rss> 

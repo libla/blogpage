@@ -2,10 +2,201 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 技术宅的自留地</title>
-    <link>/tags/</link>
+    <link>https://libla.me/tags/</link>
     <description>Recent content in Tags on 技术宅的自留地</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <copyright>Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</copyright><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 12 Mar 2017 19:09:25 +0800</lastBuildDate>
+    <atom:link href="https://libla.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redis</title>
+      <link>https://libla.me/tags/redis/</link>
+      <pubDate>Sun, 12 Mar 2017 19:09:25 +0800</pubDate>
+      <guid>https://libla.me/tags/redis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>持久化</title>
+      <link>https://libla.me/tags/%E6%8C%81%E4%B9%85%E5%8C%96/</link>
+      <pubDate>Sun, 12 Mar 2017 19:09:25 +0800</pubDate>
+      <guid>https://libla.me/tags/%E6%8C%81%E4%B9%85%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mysql</title>
+      <link>https://libla.me/tags/mysql/</link>
+      <pubDate>Sun, 06 Nov 2016 08:38:07 +0800</pubDate>
+      <guid>https://libla.me/tags/mysql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ftp</title>
+      <link>https://libla.me/tags/ftp/</link>
+      <pubDate>Sun, 06 Nov 2016 08:19:10 +0800</pubDate>
+      <guid>https://libla.me/tags/ftp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>sftp</title>
+      <link>https://libla.me/tags/sftp/</link>
+      <pubDate>Sun, 06 Nov 2016 08:19:10 +0800</pubDate>
+      <guid>https://libla.me/tags/sftp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>7z</title>
+      <link>https://libla.me/tags/7z/</link>
+      <pubDate>Wed, 31 Aug 2016 01:45:56 +0800</pubDate>
+      <guid>https://libla.me/tags/7z/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>c#</title>
+      <link>https://libla.me/tags/c#/</link>
+      <pubDate>Wed, 31 Aug 2016 01:45:56 +0800</pubDate>
+      <guid>https://libla.me/tags/c#/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SevenZipSharp</title>
+      <link>https://libla.me/tags/sevenzipsharp/</link>
+      <pubDate>Wed, 31 Aug 2016 01:45:56 +0800</pubDate>
+      <guid>https://libla.me/tags/sevenzipsharp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>zlib</title>
+      <link>https://libla.me/tags/zlib/</link>
+      <pubDate>Wed, 31 Aug 2016 01:36:48 +0800</pubDate>
+      <guid>https://libla.me/tags/zlib/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>EPPlus</title>
+      <link>https://libla.me/tags/epplus/</link>
+      <pubDate>Wed, 31 Aug 2016 00:55:19 +0800</pubDate>
+      <guid>https://libla.me/tags/epplus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>excel</title>
+      <link>https://libla.me/tags/excel/</link>
+      <pubDate>Wed, 31 Aug 2016 00:55:19 +0800</pubDate>
+      <guid>https://libla.me/tags/excel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>xlsx</title>
+      <link>https://libla.me/tags/xlsx/</link>
+      <pubDate>Wed, 31 Aug 2016 00:55:19 +0800</pubDate>
+      <guid>https://libla.me/tags/xlsx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>async</title>
+      <link>https://libla.me/tags/async/</link>
+      <pubDate>Tue, 16 Aug 2016 03:45:37 +0800</pubDate>
+      <guid>https://libla.me/tags/async/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>coroutine</title>
+      <link>https://libla.me/tags/coroutine/</link>
+      <pubDate>Tue, 16 Aug 2016 03:45:37 +0800</pubDate>
+      <guid>https://libla.me/tags/coroutine/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>cps</title>
+      <link>https://libla.me/tags/cps/</link>
+      <pubDate>Tue, 16 Aug 2016 03:45:37 +0800</pubDate>
+      <guid>https://libla.me/tags/cps/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>lua</title>
+      <link>https://libla.me/tags/lua/</link>
+      <pubDate>Tue, 16 Aug 2016 03:45:37 +0800</pubDate>
+      <guid>https://libla.me/tags/lua/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>多线程</title>
+      <link>https://libla.me/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+      <pubDate>Sun, 14 Aug 2016 19:26:40 +0800</pubDate>
+      <guid>https://libla.me/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>windows</title>
+      <link>https://libla.me/tags/windows/</link>
+      <pubDate>Thu, 11 Aug 2016 23:53:24 +0800</pubDate>
+      <guid>https://libla.me/tags/windows/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>跨平台</title>
+      <link>https://libla.me/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/</link>
+      <pubDate>Thu, 11 Aug 2016 23:53:24 +0800</pubDate>
+      <guid>https://libla.me/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>docker</title>
+      <link>https://libla.me/tags/docker/</link>
+      <pubDate>Tue, 19 Jan 2016 12:20:05 +0800</pubDate>
+      <guid>https://libla.me/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>javascript</title>
+      <link>https://libla.me/tags/javascript/</link>
+      <pubDate>Thu, 31 Dec 2015 22:53:12 +0800</pubDate>
+      <guid>https://libla.me/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>node.js</title>
+      <link>https://libla.me/tags/node.js/</link>
+      <pubDate>Thu, 31 Dec 2015 22:53:12 +0800</pubDate>
+      <guid>https://libla.me/tags/node.js/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C#与非托管</title>
+      <link>https://libla.me/tags/c#%E4%B8%8E%E9%9D%9E%E6%89%98%E7%AE%A1/</link>
+      <pubDate>Mon, 08 Jun 2015 09:38:21 +0800</pubDate>
+      <guid>https://libla.me/tags/c#%E4%B8%8E%E9%9D%9E%E6%89%98%E7%AE%A1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>unity3d</title>
+      <link>https://libla.me/tags/unity3d/</link>
+      <pubDate>Mon, 08 Jun 2015 09:38:21 +0800</pubDate>
+      <guid>https://libla.me/tags/unity3d/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>android</title>
+      <link>https://libla.me/tags/android/</link>
+      <pubDate>Mon, 08 Jun 2015 00:03:33 +0800</pubDate>
+      <guid>https://libla.me/tags/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>async/await</title>
+      <link>https://libla.me/tags/async/await/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://libla.me/tags/async/await/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>p/invokes</title>
+      <link>https://libla.me/tags/p/invokes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://libla.me/tags/p/invokes/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

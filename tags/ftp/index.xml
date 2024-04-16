@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ftp on 技术宅的自留地</title>
+    <link>https://libla.me/tags/ftp/</link>
+    <description>Recent content in ftp on 技术宅的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 06 Nov 2016 08:19:10 +0800</lastBuildDate>
+    <atom:link href="https://libla.me/tags/ftp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debian 8开启sftp服务</title>
+      <link>https://libla.me/posts/2016/11/06/sftp/</link>
+      <pubDate>Sun, 06 Nov 2016 08:19:10 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/11/06/sftp/</guid>
+      <description>看到某云的CDN居然是使用ftp这种早该淘汰的协议，不禁有些吐槽。ftp曾经作为互联网上最重要的协议，但漫长使用过程中体现出的各种缺点，已不</description>
+    </item>
+  </channel>
+</rss>

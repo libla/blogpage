@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on 技术宅的自留地</title>
+    <link>https://libla.me/tags/docker/</link>
+    <description>Recent content in docker on 技术宅的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 19 Jan 2016 12:20:05 +0800</lastBuildDate>
+    <atom:link href="https://libla.me/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker 操作记录</title>
+      <link>https://libla.me/posts/2016/01/19/docker/</link>
+      <pubDate>Tue, 19 Jan 2016 12:20:05 +0800</pubDate>
+      <guid>https://libla.me/posts/2016/01/19/docker/</guid>
+      <description>开启新容器 docker run --name 容器名字 -ti[d] 镜像 初始化命令(需要是阻塞的) 额外参数 -v 本地目录:容器目录[:ro] 映射本地路径和容器路径(时区同步、数据库doc</description>
+    </item>
+  </channel>
+</rss>

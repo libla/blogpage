@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on 技术宅的自留地</title>
+    <link>https://libla.me/tags/javascript/</link>
+    <description>Recent content in javascript on 技术宅的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright &amp;copy; 2020-{now} 技术宅的自留地. All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 31 Dec 2015 22:53:12 +0800</lastBuildDate>
+    <atom:link href="https://libla.me/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>node.js使用感想</title>
+      <link>https://libla.me/posts/2015/12/31/nodejs/</link>
+      <pubDate>Thu, 31 Dec 2015 22:53:12 +0800</pubDate>
+      <guid>https://libla.me/posts/2015/12/31/nodejs/</guid>
+      <description>最近尝试了使用node.js，但因为不是太深入(小项目，还没做完)，所以不能谈心得谈经验，就来谈谈使用感想。 node.js和以往的cgi接口</description>
+    </item>
+  </channel>
+</rss>
